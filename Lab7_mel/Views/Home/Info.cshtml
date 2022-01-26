@@ -1,0 +1,72 @@
+﻿@{
+    Layout = null;
+}
+
+@model Car;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Info Product</title>
+</head>
+<body style="border: 1px solid black; background-color: #F5F5DC;">
+
+    <h3>Car Information</h3>
+    @using (Html.BeginForm("Info", "Home"))
+    {
+        <table style="        border: 1px solid black;
+        background-color: #D2691E;">
+            <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">Id</td>
+                <td style="border: 1px solid black;">
+                    @Html.DisplayFor(model => model.ID)
+                    @Html.HiddenFor(model => model.ID)
+                </td>
+            </tr>
+            <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">Name</td>
+                <td style="border: 1px solid black;">
+                    @Html.DisplayFor(model => model.Name)
+                    @Html.HiddenFor(model => model.Name)
+                </td>
+            </tr>
+            <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">Price</td>
+                <td style="border: 1px solid black;">
+                    @Html.DisplayFor(model => model.Price)
+                    @Html.HiddenFor(model => model.Price)
+                </td>
+            </tr>
+            <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">Year</td>
+                <td style="border: 1px solid black;">
+                    @Html.DisplayFor(model => model.Year)
+                    @Html.HiddenFor(model => model.Year)
+                </td>
+            </tr>
+            <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">Generator</td>
+                <td style="border: 1px solid black;">
+                    @ViewBag.generName
+                </td>
+            </tr>
+            <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">Generator Capital</td>
+                <td style="border: 1px solid black;">
+                    @ViewBag.generCapital
+                </td>
+            </tr>
+            <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">Generator Country</td>
+                <td style="border: 1px solid black;">
+                    @ViewBag.generCountry
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Back to main page" />
+    }
+
+</body>
+</html>

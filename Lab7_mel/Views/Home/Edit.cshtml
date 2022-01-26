@@ -1,0 +1,52 @@
+﻿@model Car;
+@{
+    Layout = null;
+}
+<head>
+    <link href="C:\Users\binar\source\repos\Lab7_mel\Lab7_mel\Content\style.css" rel="stylesheet" />
+</head>
+<h4>Car</h4>
+<div style="border: 1px solid black; background-color: #F5F5DC;">
+    @using (Html.BeginForm("Edit", "Home"))
+    {
+        <div class="dataBox">
+            <label>ID </label><br />
+            @Html.DisplayFor(model => model.ID)
+            @Html.HiddenFor(model => model.ID)
+
+        </div>
+        <div class="dataBox">
+            <label>Название модели </label><br />
+            @Html.TextBoxFor(m => m.Name, new { @class = "text-box" })
+        </div>
+        <div class="dataBox">
+            <label>Год выпуска</label><br />
+            @Html.TextBoxFor(m => m.Year, "2020", new
+            {
+                type = "number",
+                @class =
+           "text-box"
+            })
+        </div>
+        <div class="dataBox">
+            <label>Стоимость</label><br />
+            @Html.TextBoxFor(m => m.Price, "1000000", new
+            {
+                type = "number",
+                @class =
+           "text-box"
+            })
+        </div>
+        <div class="dataBox">
+            <label>Страна</label><br />
+            @Html.DropDownListFor(m => m.GeneratorID, (SelectList)ViewBag.gener)
+        </div>
+
+        <div class="dataBox">
+            <input type="submit" value="Сохранить" />
+        </div>
+    }
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

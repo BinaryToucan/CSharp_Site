@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Car>;
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css"/>
+</head>
+<body style="        background-color: #FFF8DC">
+    <div class="text-center" style="        background-color: #FFFAF0">
+        <h2>@ViewData["Title"]</h2>
+        @* Отображаем объекты коллекции здесь *@
+    </div>
+    <div class="car-list">
+        <table style="border: 1px solid black">
+            <tr style="border: 1px solid black">
+                <th style="border: 1px solid black">Id</th>
+                <th style="border: 1px solid black">Название модели</th>
+                <th style="border: 1px solid black">Год выпуска</th>
+                <th style="border: 1px solid black">Стоимость</th>
+                <th style="border: 1px solid black">Доп</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr style="border: 1px solid black">
+                    <td>@item.ID</td>
+                    <td>@item.Name</td>
+                    <td>@item.Year</td>
+                    <td>@item.Price</td>
+                    <td>
+                        @Html.ActionLink("Подробнее", "Info", item)
+                        @Html.ActionLink("Редактирование", "Edit", item)
+                        @Html.ActionLink("Удалить", "Delete", item)
+                    </td>
+                </tr>
+            }
+        </table>
+        @Html.ActionLink("Добавить новую модель", "Create")
+        @Html.ActionLink("Полная информация о автомобилях", "All_Info")
+    </div>
+
+</body>
+</html>

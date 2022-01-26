@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Generator>;
+@{
+    Layout = null;
+}
+<h4>Car</h4>
+<div style="        background-color: #FFF8DC;border: 1px solid black">
+    @using (Html.BeginForm("All_Info", "Home"))
+    {
+        <div class="dataBox">
+            <label>Общая информация</label><br />
+            @ViewBag.count
+
+        </div>
+        <div class="dataBox">
+            <label>По годам распределение</label><br />
+            <table style="border: 1px solid black">
+                @foreach (var item in ViewBag.yearCar)
+                {
+                    <tr style="border: 1px solid black">
+                        <td style="border: 1px solid black">@item.Year</td>
+                        <td style="border: 1px solid black">@item.Count</td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="dataBox">
+            <label>Средняя стоимость по годам</label><br />
+            <table style="border: 1px solid black">
+                @foreach (var item in ViewBag.yearAvg)
+                {
+                    <tr style="border: 1px solid black">
+                        <td style="border: 1px solid black">@item.Year</td>
+                        <td style="border: 1px solid black"> @item.Count</td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="dataBox">
+            <label>По производителям</label><br />
+            <table style="border: 1px solid black">
+                @foreach (var item in ViewBag.cars)
+                {
+                    <tr style="border: 1px solid black">
+                        <td style="border: 1px solid black">@item.Gener</td>
+                        <td style="border: 1px solid black">@item.Count</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
